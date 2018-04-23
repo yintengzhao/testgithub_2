@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/build/vendor.css">
+    <link rel="stylesheet" href="/build/application.css">
+    <script src="require.js" defer async="true" data-main="build/root"></script>
+  </head>
+  <body ng-controller="MainCtrl" id="main" ng-class="" ng-cloak>
+
+    <div id="title">
+      <div id="sys-title-logo">
+        <div id="logo">
+          <img src="assets/logo.png">
+        </div>
+        <div id="sys-title">保障体系模拟仿真系统</div>
+      </div>
+    </div>
+
+
+    <div id="modules">
+      <a href="require_sim.html">
+        <div class="module red">物资消耗模拟仿真模块</div>
+      </a>
+
+      <a href="trans_sim.html">
+        <div id="trans_sim" class="module blue">物资供补模拟仿真模块</div>
+      </a>
+      <a href="watch_goods.html">
+        <div class="module yellow">保障平台库存动态监控</div>
+      </a>
+
+      <a href="demo.html">
+        <div class="module green">人员倒班模块</div>
+      </a>
+    </div>
+
+  </body>
+</html>

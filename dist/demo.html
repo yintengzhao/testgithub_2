@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/build/vendor.css">
+  <link rel="stylesheet" href="/build/application.css">
+  <script src="require.js" defer async="true" data-main="build/root"></script>
+</head>
+
+<body ng-controller="DemoCtrl" id="demo" ng-class="" ng-cloak>
+  <div id="sys-title-logo">
+    <div id="logo">
+      <img src="assets/logo.png" alt="中海油logo">
+    </div>
+    <div id="sys-title">保障体系模拟仿真系统</div>
+    <div id="sys-subtitle">人员倒班系统</div>
+  </div>
+
+
+
+  <div layout="" id="sys-menu">
+    <button onclick="window.location.href=('index.html')">首页</button>
+    <button onclick="window.location.href=('require_sim.html')">物资消耗模拟仿真模块</button>
+    <button onclick="window.location.href=('trans_sim.html')">物资供补模拟仿真模块</button>
+    <button onclick="window.location.href=('watch_goods.html')">保障平台库存动态监控</button>
+    <button onclick="window.location.href=('demo.html')">人员倒班系统</button>
+  </div>
+<!-- {{bbb}} -->
+  <div id="sys-area">
+
+
+
+    <div layout="row" id="sys-operation">
+      <div>
+        <div layout="column">
+          <button>排班查询</button>
+          <button>班次设置</button>
+          <button>作息时间</button>
+          <button>排班设置</button>
+          <button>请假系统</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <canvas style="width:100%;height:270px" id="bar" class="chart chart-bar"
+chart-data="datac" chart-labels="labelsc" chart-series="series">
+</canvas>
+
+<script type="text/javascript">document.write('<script src="' + (location.protocol || 'http:') + '//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')</script>
+</body>
+
+</html>

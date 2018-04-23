@@ -1,0 +1,63 @@
+#watch_goods{
+
+@import 'watch_table';
+
+#sys-title-logo {
+	width: 500px;
+	padding-top: 16px;
+}
+
+#logo {
+	display: inline-block;
+
+	img {
+		width: 60px;
+	}
+	// top: 20px;
+}
+
+#sys-title {
+	color: white;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 36px;
+}
+
+#sys-subtitle{
+  color: rgb(208, 208, 208);
+  margin-left: 72px;
+  font-size: 28px;
+}
+#content{
+  border-radius: 4px;
+  margin-top: 32px;
+  padding: 16px 64px 72px;
+  margin: 12px 104px;
+  background-color: white;
+}
+
+#watch-table-container{
+  margin-top: 22px;
+  text-align: center;
+  table{
+		text-align: center;
+    width: 100%;
+  }
+	td{
+		height: 20px;
+	}
+}
+
+#chart{
+	position: relative;
+	margin-top: 30px;
+	height: 200px;
+	// .chart-bar{
+	// 	width: 100%;
+	// 	height: 100%
+	// }
+}
+
+
+
+}

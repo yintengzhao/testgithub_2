@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "@types/angular": "^1.6.39",
+    "@types/jquery": "^3.2.16",
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.7",
+    "angular-aria": "^1.6.7",
+    "angular-chart.js": "^1.1.1",
+    "angular-material": "^1.1.5",
+    "angular-material-icons": "^0.7.1",
+    "angular-messages": "^1.6.7",
+    "angular-resource": "^1.6.7",
+    "angular-smart-table": "^2.1.11",
+    "angular-weather-widget": "^1.2.4",
+    "chart.js": "^2.7.1",
+    "jquery": "^3.2.1",
+    "ng2-smart-table": "^1.2.2",
+    "requirejs": "^2.3.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-include": "^2.3.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-npm-dist": "^0.1.6",
+    "gulp-sass": "^3.1.0",
+    "gulp-scss": "^1.4.0",
+    "gulp-typescript": "^3.2.3",
+    "typescript": "^2.6.1"
+  },
+  "scripts": {
+    "install": "./setup_none_npm.sh"
+  }
+}

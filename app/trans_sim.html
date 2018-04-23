@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/build/vendor.css">
+  <link rel="stylesheet" href="/build/application.css">
+  <script src="require.js" defer async="true" data-main="build/root"></script>
+</head>
+
+<body ng-controller="TransSimCtrl" id="trans_sim" ng-class="" ng-cloak>
+<div ng-show="mainhtml">
+  <div layout="column" class="zero">
+
+    <div layout="{{ vm.direction }}" layout-md="row">
+
+      <div id="sys-title-logo">
+        <div id="logo">
+          <img src="assets/logo.png">
+        </div>
+        <div id="sys-title">保障体系模拟仿真系统</div>
+      </div>
+
+      <div id="sys-date-bar">
+        <div>
+          <div id="date-show" class="md-display-1">{{nowtime|date:'yyyy年MM月dd日'}}</div>
+        </div>
+        <div>
+          <div id="emmmmmm" class="md-display-1">爱国 敬业 诚信 友善</div>
+        </div>
+      </div>
+
+      <!--钟表-->
+      <div id="sys-time" class="diginum">
+        <div class="frnum">{{nowtime|date:'HH:mm:ss'}}</div>
+        <div class="bgnum">88:88:88</div>
+      </div>
+      <!--chart-->
+      <div id="sys-monitor">
+        <div class="sub-chart">
+          <canvas class="chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-colors="colors">
+          </canvas>
+        </div>
+        <div class="sub-chart">
+          <canvas class="chart-line" chart-data="data2" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride2" chart-colors="colors2">
+          </canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!--。。。这。。。里。。。是。。。第。。。二。。。行。。。组。。。件。。。-->
+  <div layout="column" id="middle-part">
+    <div layout="{{ vm.direction }}" layout-md="row">
+      <!--ship组件-->
+      <div layout="column" id="detail-show">
+
+        <div class="ship">
+          <!-- <md-list-item class="md-2-line" ng-click="null"> -->
+            <div class="md-list-item-text" layout="column" ng-show="sta">
+              <div class="logo">
+                <img src="assets/ship615.png">
+              </div>
+              <div class="title">海洋石油615</div>
+              <div class="attr">
+                <p>
+                  所属海区 <span class="attr-value">渤海</span><br> 船旗国 <span class="attr-value">中国</span><br> 船籍港 <span class="attr-value">天津</span>
+                </p>
+              </div>
+              <div class="description">
+                <p>
+                  海洋石油615由XXX单位于XXX年购入ssssss，是专为石油平台服务设计的具有供应、拖拽、抛起锚、救助和守护、对外消防灭火等功能的船舶。
+                </p>
+              </div>
+            </div>
+
+
+            <!-- </md-list-item> -->
+            <div class="" ng-show="asta" >
+              <div class="logo2">
+                <img src="assets/ship615.png">
+              </div>
+              <div class="title">{{name}} </div>
+              <div class="attr2">
+                <p>编号：<span class="attr2-value">{{id}}</span> <br>物资类型：<span class="attr2-value">{{type}}</span><br>体积：<span class="attr2-value">{{volume}}</span><br>重量：<span class="attr2-value">{{weight}}<span></p>
+                <p class="description">简介：{{detail}}</p>
+              </div>
+            </div>
+
+
+            <div class="" ng-show="bsta" >
+              <div class="logo2">
+                <img src="assets/ship615.png">
+              </div>
+              <div class="title">{{shipname}} </div>
+              <div class="attr2">
+                <p>编号：<span class="attr2-value">{{shipid}}</span> <br>船旗国：<span class="attr2-value">{{nation}}</span><br>船旗港：<span class="attr2-value">{{port}}</span><br>所属海区：<span class="attr2-value">{{seazone}}<span></p>
+                <p class="description">简介：{{shipinfo}}</p>
+              </div>
+            </div>
+
+            <div class="" ng-show="csta" >
+              <div class="logo2">
+                <img src="assets/ship615.png">
+              </div>
+              <div class="title">{{storage_place}}基地 </div>
+              <div class="attr2">
+                <p>编号：<span class="attr2-value">{{baseid}}</span> <br>名称：<span class="attr2-value">{{storage_place}}</span><br>东经：<span class="attr2-value">{{base_x}}</span> <br>北纬：<span class="attr2-value">{{base_y}}</span> <br><span class="attr2-value"></span><br><span class="attr2-value"><span></p>
+                <p class="description"></p>
+              </div>
+            </div>
+
+
+
+
+
+
+          <!-- <div class="" ng-show="shipdetailshow" >
+            <div class="logo2">
+              <img src="assets/ship615.png">
+            </div>
+            <div class="title">{{name}} </div>
+            <div class="attr2">
+              <p>编号：<span class="attr2-value">{{id}}</span> <br>物资类型：<span class="attr2-value">{{type}}</span><br>体积：<span class="attr2-value">{{volume}}</span><br>重量：<span class="attr2-value">{{weight}}<span></p>
+              <p class="description">简介：{{detail}}</p>
+            </div>
+          </div>
+
+          <div class="" ng-show="baswdetailshow" >
+            <div class="logo2">
+              <img src="assets/ship615.png">
+            </div>
+            <div class="title">{{name}} </div>
+            <div class="attr2">
+              <p>编号：<span class="attr2-value">{{id}}</span> <br>物资类型：<span class="attr2-value">{{type}}</span><br>体积：<span class="attr2-value">{{volume}}</span><br>重量：<span class="attr2-value">{{weight}}<span></p>
+              <p class="description">简介：{{detail}}</p>
+            </div>
+          </div> -->
+          <md-button id="addbutton" ng-click="addship()">添加</md-button>
+          <md-button id="editbutton" ng-click='edit()'>验证</md-button>
+
+        </div>
+      </div>
+      <!--map组件-------------------------------------------------------------------------------->
+      <div>
+        <div id="mc-map">
+          <div id="mc-map-header">
+            <span class="mc-header-cell">物资总质量：{{map_header.total_m}}吨</span>
+            <span class="mc-header-cell">物资总体积：{{map_header.total_v}}立方米</span>
+            <span class="mc-header-cell">平台数量：{{map_header.platform}}</span>
+            <span class="mc-header-cell">运输船：{{map_header.ship}}</span>
+
+          </div>
+
+          <div id="mc-map-main" ng-click="handle_click_on_map($event)">
+            <div id="mc-current-point" ng-show="map.coor_pointer">
+              <ng-md-icon class="mc-tool-icon" icon="adjust" size="40"></ng-md-icon>
+            </div>
+            <div id="mc-points">
+              <div class="mc-point" ng-repeat="($index, $obj) in map.points" id="mcp-{{$index}}" ng-style="{'left': $obj.x, 'top': $obj.y}" ng-click="handle_point_select($index, $event)">
+                <ng-md-icon ng-class="$obj.t" icon="{{get_point_icon($obj)}}" size="40"></ng-md-icon>
+              </div>
+            </div>
+            <div ng-show="map.show">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="470px" width="675px">
+                  <defs>
+                    <filter id="filter">
+                      <feGaussianBlur stdDeviation="5"/>
+                    </filter>
+                    <mask id="mask">
+                    <rect x="0" y="0" height="470px" width="675px" fill="white" filter="url(#filter)"></rect>
+                    </mask>
+                  </defs>
+
+                  <image class="test" xlink:href="assets/cn_south_sea.jpeg" mask="url(#mask)" width="{{map.slider}}%"></image>
+                </svg>
+            </div>
+
+          </div>
+
+          <md-slider-container id="mc-slider">
+            <md-slider flex min="100" max="150" ng-model="map.slider" aria-label="blue" id="blue-slider" class="md-primary">
+            </md-slider>
+          </md-slider-container>
+
+          <div id="mc-bottom">
+            <div id="mc-tool-bar">
+              <ng-md-icon class="mc-tool-icon" icon="location_on" size="40"></ng-md-icon>
+              <ng-md-icon class="mc-tool-icon" icon="star" size="40"></ng-md-icon>
+              <ng-md-icon class="mc-tool-icon" icon="grid_on" size="40" ng-click=""></ng-md-icon>
+
+              <ng-md-icon class="mc-tool-icon" icon="language" size="40"></ng-md-icon>
+              <ng-md-icon class="mc-tool-icon" icon="remove_red_eye" ng-click="toggle_map()" size="40"></ng-md-icon>
+              <ng-md-icon class="mc-tool-icon" icon="clear" size="40" ng-click="clear_selected()"></ng-md-icon>
+            </div>
+            <div id="mc-select" ng-click="prevent_bubble($event)">
+              <div class="mc-selected-point" ng-repeat="($index, $obj) in map.points" ng-if="$obj.selected" id="mcsp-{{$index}}" ng-click="handle_selected_point($index, $obj, $event)">
+                <ng-md-icon class="mc-select-icon" ng-class="$obj.t" icon="{{get_point_icon($obj)}}" size="40"></ng-md-icon>
+              </div>
+            </div>
+            <!-- <md-button id="xuanding" class="md-raised" ng-click="addship()" style="position:absolute;left:10px">选定</md-button> -->
+
+            <div id="mc-coor">
+              <div id="mc-coor-info" ng-show="map.coor_pointer">
+                <div>东经：
+                  <input type="number" min="0" max="655" ng-model="target.x" style="width:50px"></input>
+
+                </div>
+                <div>北纬：
+                  <input type="number" min="0" max="455" ng-model="target.y" style="width:50px"></input>
+
+                </div>
+                <div>海拔：0米</div>
+              </div>
+              <div id="mc-coor-pointer" ng-click="handle_coor_pointer()"  ng-class="{'enabled': map.coor_pointer}">
+                <ng-md-icon class="" icon="gps_fixed" size="70"></ng-md-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--组件-------------------------------------------------------------------------------->
+
+      <div id="middle-right-part">
+        <!--搜索组件-------------------------------------------------------------------------------->
+
+        <div layout="column" id="search-bar">
+          <div layout="{{ vm.direction }}" layout-md="row">
+            <div>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>请输入关键字</label>
+                <input ng-model="theMax">
+              </md-input-container>
+            </div>
+            <div>
+              <md-button class="md-raised" ng-click="search()">搜索</md-button>
+            </div>
+            <div id="search-switches">
+              <md-switch class="md-raised" name=""  required ng-model="switchc">基地</md-switch>
+              <md-switch class="md-primary" name="" ng-model="switchb" required>载具</md-switch>
+              <md-switch class="md-primary " name="special" ng-model="switchd" required>平台</md-switch>
+              <md-switch class="md-accent md-raised md-hue-1" name="" ng-model="switcha" required>物资</md-switch>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!--物资、载具、海上平台---------------->
+        <div layout="column" id="object-list-containers">
+          <div layout="{{ vm.direction }}" layout-md="row">
+
+            <div layout="column" class="object-list-container" ng-click="selectbase()">
+              <div class="header base">基地 <span class="object-counter base">99</span></div>
+              <md-content flex>
+                <md-list-item class="goods-list-item" ng-repeat="base in bases" ng-click="showbase(base.id,base.name,base.x,base.y)" ng-show="c">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ base.name}}</div>
+                    <div class="description">{{ base.x }}</div>
+                    <div class="description">{{ base.y }}</div>
+
+                  </div>
+                </md-list-item>
+
+                <md-list-item class="goods-list-item" ng-repeat="base in bases" ng-click="showbase(base.id,base.name,base.x,base.y)" ng-show="cc">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ base.name }}</div>
+                    <div class="description">{{ base.x }}</div>
+                    <div class="description">{{ base.y }}</div>
+                    <!-- <div class="description">{{ base.name }}</div> -->
+                  </div>
+                </md-list-item>
+              </md-content>
+            </div>
+
+
+
+
+            <div layout="column" class="object-list-container" ng-click="seleceship()">
+              <div class="header boat">载具 <span class="object-counter boat">99</span></div>
+              <md-content flex>
+                <md-list-item class="goods-list-item" ng-repeat="ship in ships" ng-click="showship(ship.id,ship.name,ship.info,ship.nation,ship.port,ship.seazone,ship.deckweight)" ng-show="b">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ ship.name }}</div>
+                    <div class="description">{{ ship.info }}</div>
+                  </div>
+                </md-list-item>
+
+                <md-list-item class="goods-list-item" ng-show="bb" ng-repeat="ship in ships" ng-click="showship(ship.id,ship.name,ship.info,ship.nation,ship.port,ship.seazone)">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ ship.name }}</div>
+                    <div class="description">{{ ship.info }}</div>
+                  </div>
+                </md-list-item>
+
+              </md-content>
+            </div>
+
+
+
+
+            <div layout="column" class="object-list-container" ng-click="selectplatform()">
+              <div class="header platform">海上平台<span class="object-counter platform">99</span></div>
+              <md-content flex>
+                <md-list-item class="goods-list-item"  ng-click="showplatform()" >
+                  <div>
+                    <div class="title">平台1</div>
+                    <div class="description">平台简介</div>
+                  </div>
+                </md-list-item>
+
+                <md-list-item class="goods-list-item" ng-repeat="platform in platforms" ng-click="showplatform()" ng-show="dd">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ platform.name }}</div>
+                    <div class="description">{{ platform.detail }}</div>
+                  </div>
+                </md-list-item>
+              </md-content>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!--数据统计、柱状图 、、饼图---------------------------------------------------------------------------->
+        <div layout="column" id="chart-container">
+          <div layout="{{ vm.direction }}" layout-md="row" class="">
+
+
+          <div id="material-list-containers">
+            <div layout="column" class="object-list-container">
+              <div class="header material">物资<span class="object-counter material">99</span></div>
+              <md-content flex>
+                <md-list-item class="goods-list-item" ng-repeat="material in materials" ng-click="showmaterial(material.name,material.detail,material.id,material.type,material.volume,material.weight)" ng-show="a">
+                  <div>
+                    <div class="title">{{ material.name }}</div>
+                    <div class="description">{{ material.detail }}</div>
+                    <div class="description">{{ material.amount }}</div>
+                  </div>
+                </md-list-item>
+
+                <md-list-item class="goods-list-item" ng-repeat="material in materials" ng-click="showmaterial(material.name,material.detail,material.id,material.type,material.volume,material.weight)" ng-show="aa">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ material.name }}</div>
+                    <div class="description">{{ material.detail }}</div>
+                    <div class="description">{{ material.amount }}</div>
+                  </div>
+                </md-list-item>
+
+                <md-list-item class="goods-list-item" ng-repeat="material in materials" ng-click="showmaterial(material.name,material.detail,material.materialid,material.type,material.volume,material.weight,material.amount)" ng-show="aaa">
+                  <div class="md-list-item-text" layout="column">
+                    <div class="title">{{ material.name }}</div>
+                    <div class="description">{{ material.amount }}</div>
+                  </div>
+                </md-list-item>
+              </md-content>
+            </div>
+          </div>
+
+          <div id="bar-chart">
+            <!-- 重量：(吨) -->
+            <canvas id="bar" class="chart chart-bar" chart-colors="[red]" chart-data="datac" chart-labels="labelsc" chart-series="series">
+           </canvas>
+          </div>
+
+          <div id="material-list-containers">
+            <div layout="column" class="object-list-container" style="background-color:rgb(255, 255, 255);border-radius:7px">
+              <div class="header material">验证结果<span class="object-counter material">99</span></div>
+
+              <div class="attr2">
+                <p>验证结果：<span style="color:rgb(195, 134, 30)">{{verify_answer}}</span> <br>需运送货物总量：<span style="color:rgb(63, 188, 221)">{{(sum_mater)}}</span><br>所选载具载重总量：<span style="color:rgb(31, 185, 74)">{{sum_ship_mater}}</span></p>
+                <p class="description">建议：<span style="color:rgb(158, 18, 35)">{{suggestion4}}</span></p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- <div>
+            <md-button ng-click="myFunction3()">{{suggestion1}}</md-button>
+            <md-button ng-click="myFunction3()">{{sum_mater}}</md-button>
+            <md-button ng-click="myFunction3()">{{sum_ship_mater}}</md-button>
+            <md-button ng-click="myFunction3()">{{suggestion4}}</md-button>
+          </div> -->
+
+            <!-- <div  id="pie-chart">
+              <canvas class="chart chart-pie" chart-data="datab" chart-labels="labelb" chart-options="pieoptions">
+              </canvas>
+            </div> -->
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <h3 class="md-display-3" style="position:absolute;left:1150px;bottom:130px;color:#9E9E9E">添加物资</h3>
+
+
+  <!--分割线--------------------------------------------------------------------------------->
+  <!--第三行组件------------------------------------------------------------------------------>
+
+
+  <!--物资滑动条/天气------------------------------------------------------------------------------->
+  <div layout="column" id="bottom-part">
+    <div layout="{{ vm.direction }}" layout-md="row">
+      <!--仿真简介-------------------------------------------------------->
+
+      <div id="bottom-form">
+          <div>仿真名称</div>
+          <textarea rows="1" ng-model="content1">{{ content1 }}</textarea>
+          <div>仿真简介</div>
+          <textarea rows="10" ng-model="content2">{{ content2 }}</textarea>
+          <div>备注</div>
+          <textarea rows="1" ng-model="content3">{{ content3 }}</textarea>
+      </div>
+
+
+
+      <!--天气/约束条件---------------------------------------------------------------------------->
+
+
+      <div id="weather-and-condition">
+        <!--天气---------------------------->
+        <div id="weather-list">
+          <div id="weather-header">
+            <span id="weather-title">天气</span>
+          <md-button class="md-fab md-mini md-primary" >+</md-button>
+          </div>
+
+          <div id="weather-card-container">
+            <!-- <div id="card-wrapper">
+              <div class="weather-card" ng-repeat="i in [1,2,3,4,5,6,7,8,9]">
+                <div>#{{i}}</div>
+                <div>小雨</div>
+                <div>风力:{{i*2}}级</div>
+              </div>
+            </div> -->
+            <div layout="column" class="test">
+              <div  layout="{{ vm.direction }}" layout-md="row" class="">
+
+
+                <div id="card-wrapper" ng-click="Day1()">
+                  <div class="weather-card" id="card1" >
+                    <div>天气：{{dw1}}{{zhuan1}}{{nw1}}</div>
+                    <div>温度：{{lowtem1}}{{dao1}}{{hightem1}}</div>
+                    <div>风力:{{windlevel1}}{{ji1}}</div>
+                  </div>
+                </div>
+
+                <div  id="card-wrapper" ng-click="Day2()">
+                  <div class="weather-card" id="card2">
+                    <div>天气：{{dw2}}{{zhuan2}}{{nw2}}</div>
+                    <div>温度：{{lowtem2}}{{dao2}}{{hightem2}}</div>
+                    <div>风力:{{windlevel2}}{{ji2}}</div>
+                  </div>
+                </div>
+
+                <div id="card-wrapper" ng-click="Day3()">
+                  <div class="weather-card" id="card3">
+                    <div>天气：{{dw3}}{{zhuan3}}{{nw3}}</div>
+                    <div>温度：{{lowtem3}}{{dao3}}{{hightem3}}</div>
+                    <div>风力:{{windlevel3}}{{ji3}}</div>
+                  </div>
+                </div>
+
+
+
+                <div id="card-wrapper" ng-click="Day4()">
+                  <div class="weather-card" id="card4">
+                    <div>天气：{{dw4}}{{zhuan4}}{{nw4}}</div>
+                    <div>温度：{{lowtem4}}{{dao4}}{{hightem4}}</div>
+                    <div>风力:{{windlevel4}}{{ji4}}</div>
+                  </div>
+                </div>
+
+
+                <div id="card-wrapper" ng-click="Day5()">
+                  <div class="weather-card" id="card5">
+                    <div>天气：{{dw5}}{{zhuan5}}{{nw5}}</div>
+                    <div>温度：{{lowtem5}}{{dao5}}{{hightem5}}</div>
+                    <div>风力:{{windlevel5}}{{ji5}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--约束条件---------------------------->
+        <div id="condition-list">
+          <div id="condition-list-title">
+            约束条件<md-button class="md-fab md-mini md-primary" ng-click="addconditions()">+</md-button>
+          </div>
+          <div id="condition-list-container">
+            <div class="condition-cell" ng-repeat="i in selected_conditions">
+              Condition{{i}}
+            </div>
+          </div>
+        </div>
+        <!-- <div style="position:relative;margin-top:70px">
+          <label>风向</label>
+          <md-select ng-model="dir">
+            <md-option>west</md-option>
+            <md-option>east</md-option>
+            <md-option>south</md-option>
+            <md-option>north</md-option>
+          </md-select>
+        </div> -->
+
+      </div>
+      <!--天气参数选择------------------------------------------------------------------------------------->
+      <div id="control-panel">
+        <div layout="column" class="test">
+          <div layout="{{ vm.direction }}" layout-md="row" class="">
+            <div>
+              <label>白天</label>
+              <md-select ng-model="dw">
+                <md-option ng-repeat="dw in dws" value="{{dw}}">{{dw}}</md-option>
+              </md-select>
+
+              </md-select>
+            </div>
+            <p style="position:relative;margin-left:50px">转</p>
+            <div style="position:relative;margin-left:50px">
+              <label>夜晚</label>
+              <md-select ng-model="nw">
+                <md-option ng-repeat="nw in nws" value="{{nw}}">{{nw}}</md-option>
+              </md-select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <md-slider-container>
+            <label>最低温度(℃)</label>
+            <md-slider flex ng-model="lowtemperature" min="-40" max="50" aria-label="tem" id="tem-slider" class="md-accent">
+            </md-slider>
+            <md-input-container>
+              <input flex type="number" ng-model="lowtemperature" aria-label="tem" aria-controls="tem-slider">
+            </md-input-container>
+          </md-slider-container>
+        </div>
+
+        <div>
+          <md-slider-container>
+            <label>最高温度(℃)</label>
+            <md-slider flex ng-model="hightemperature" min="-40" max="50" aria-label="tem" id="tem-slider" class="md-accent">
+            </md-slider>
+            <md-input-container>
+              <input flex type="number" ng-model="hightemperature" aria-label="tem" aria-controls="tem-slider">
+            </md-input-container>
+          </md-slider-container>
+        </div>
+
+
+        <div>
+          <md-slider-container>
+            <label>风力(级)</label>
+            <md-slider flex ng-model="wind.level" min="0" max="14" aria-label="level" id="level-slider" class="md-accent">
+            </md-slider>
+            <md-input-container>
+              <input flex type="number" ng-model="wind.level" aria-label="level" aria-controls="level-slider">
+            </md-input-container>
+          </md-slider-container>
+        </div>
+
+        <!-- <div>
+          <label>风向</label>
+          <md-select ng-model="dir">
+            <md-option ng-repeat="dir in dirs" value="{{dir}}">
+              {{dir}}
+            </md-option>
+          </md-select>
+        </div> -->
+
+  <md-button id="weather-confirm" md-colors="{background: 'BLUE'}" ng-click="weaconfirm()">确认</md-button>
+
+
+      </div>
+
+      <!--物资滑动条-------------------------------------------------------->
+      <div id="bottom-slider-container">
+        <div id="bottom-slider-group">
+          <div class="bottom-slider-unit" ng-repeat="i in selected_materials track by $index" ng-click="myFunction2($index,i,matervalue)">
+            <md-slider-container>
+              <div class="slider-title-btn">{{i.name}}</div>
+              <md-slider flex min="0" class="md-primary" max="500" ng-model="matervalue" aria-label="white">
+              </md-slider>
+              <input type="text" ng-model="matervalue" ></input>
+            </md-slider-container>
+          </div>
+        </div>
+        <!-- <div id="bottom-slider-add" ng-click="addmaterials()">+</div> -->
+
+      </div>
+
+
+      <!--设置/仿真开始------------------------------------------------------------------------------------->
+      <div id="bottom-right-part">
+
+
+
+        <div>
+          <div layout="{{ vm.direction }}" layout-md="row" class="">
+            <!--鲁棒度------------------->
+            <div id="robust-bar">
+                <md-slider-container>
+                  <md-slider md-discrete ng-model="bass" min="0" max="100" step="10" aria-label="bass" class="md-primary" md-vertical></md-slider>
+                  </md-slider>
+                  <div>鲁棒度</div>
+                </md-slider-container>
+            </div>
+            <!--鲁棒度------------------->
+
+            <div style="position:relative;margin-left:20px">
+              <div>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">开关1 </md-checkbox>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">天气</md-checkbox>
+
+
+              </div>
+              <div>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">开关2</md-checkbox>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">开关3</md-checkbox>
+
+              </div>
+              <div>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">设置1</md-checkbox>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">开关2</md-checkbox>
+
+              </div>
+              <div>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">设置2</md-checkbox>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">设置3</md-checkbox>
+
+              </div>
+              <div>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">设置4</md-checkbox>
+                <md-checkbox ng-checked="" ng-click="toggle(item, selected)">开关</md-checkbox>
+
+              </div>
+
+            </div>
+
+
+            <!--开关复选框----------------->
+          </div>
+        </div>
+        <!--仿真开始------------------------------------------------------------------------------>
+        <md-button id="work-start" class="md-fab" ng-click="fangzhen()">
+          <div class="md-display-2">仿真</div>
+          <div class="md-display-1">开始</div>
+        </md-button>
+
+
+
+        <!-- <md-button id="work-done" class="md-fab"  href="http://www.w3school.com.cn?no={{responseid}}" target="_blank">
+          <div >查看报告</div>
+
+        </md-button> -->
+
+
+
+        <!--仿真开始------------------------------------------------------------------------------>
+        <!-- <md-button class="md-raised" style="position:absolute;bottom:20px" ng-click="submitweth()">提交</md-button> -->
+<!-- <span style="position:absolute;left:850px;top:1008px">东风</span> -->
+
+      </div id="yin">
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- 弹窗 -->
+  <div id="myModal" class="modal" ng-show="tablehtml" >
+    <div class="modal-content" style="position:absolute;left:700px;top:300px">
+      <md-progress-circular md-mode="indeterminate" class="md-warn md-hue-2" md-diameter="150" style="position:relative;margin-left:170px;color:white"></md-progress-circular>
+      <p class="md-display-3" style="color:red">正在仿真,请稍后...</p>
+    </div>
+
+  </div>
+
+  <div ng-show="chakanhtml">
+    <md-button id="work-done" class="md-fab"  ng-click="chakan()">
+      <div class="md-display-2">查看报告</div>
+
+    </md-button>
+
+  </div>
+
+
+
+
+
+
+</body>
+
+
+</html>

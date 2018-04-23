@@ -1,0 +1,34 @@
+table.watch-table {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #FFFFFF;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.watch-table td, table.watch-table th {
+  border: 1px solid #FFFFFF;
+  padding: 10px 10px;
+}
+table.watch-table tbody td {
+  font-size: 20px;
+}
+table.watch-table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.watch-table thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+table.watch-table thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+table.watch-table thead th:first-child {
+  border-left: none;
+}
+
+table.watch-table tfoot td {
+  font-size: 14px;
+}

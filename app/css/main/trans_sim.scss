@@ -1,0 +1,490 @@
+@font-face {
+	font-family: 'sa-digital-number';
+	src: url("../assets/sa-digital-number.ttf") format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#trans_sim{
+
+@import 'mc_map.scss';
+
+#sys-title-logo {
+	width: 500px;
+	padding-top: 16px;
+}
+
+#logo {
+	display: inline-block;
+
+	img {
+		width: 60px;
+	}
+	// top: 20px;
+}
+
+#sys-title {
+	color: white;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 36px;
+}
+
+#date-show {
+	color: white;
+	font-size: 24px;
+	text-align: center;
+}
+
+#emmmmmm {
+	padding: 0 24px;
+	font-size: 28px;
+	font-weight: 600;
+	color: rgb(234, 238, 187);
+	background: linear-gradient(to bottom, #f2f2f2 0%,#e86c57 43%,#630021 100%);
+}
+
+#sys-time {
+	display: block;
+	position: relative;
+	margin-left: 64px;
+	margin-top: 12px;
+}
+
+.diginum {
+	font-family: 'sa-digital-number';
+	font-size: 48px;
+	position: relative;
+
+	.frnum {
+		color: darken(red, 10%);
+		background-color: rgba(255, 0, 0, 0.0);
+		position: relative;
+		z-index: 1;
+	}
+
+	.bgnum {
+		position: absolute;
+		top: 0;
+		color: rgba(107, 107, 107, 0.45);
+		z-index: 0;
+	}
+}
+
+#sys-monitor {
+	display: block;
+	position: relative;
+
+	.sub-chart {
+		margin-left: 32px;
+		display: inline-block;
+		background-color: white;
+		height: 72px;
+		width: 300px;
+	}
+}
+
+#middle-part {
+	height: 635px;
+	background-color: #B0BEC5;
+}
+
+#detail-show {
+	position: relative;
+	margin-left: 5px;
+	background-color: white;
+	border: 1px solid #333;
+	padding-top: 20px;
+	margin-top: 5px;
+	opacity: 0.8;
+
+	p {
+		font-size: 16px;
+	}
+
+	.ship {
+		//position: ;
+		height: 600px;
+		width: 250px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.logo {
+		text-align: center;
+		img {
+			width: 200px;
+		}
+	}
+
+	.logo2{
+		text-align: center;
+		img {
+			width: 200px;
+	}
+}
+
+#addbutton{
+	position: absolute;
+	top:550px;
+	background-color: #2196F3
+}
+#editbutton{
+	position: absolute;
+	margin-left: 140px;
+	top:550px;
+	background-color: #9E9E9E
+}
+
+
+
+
+
+
+
+
+	.title {
+		font-weight: bolder;
+		font-size: 32px;
+	}
+
+	.attr {
+		margin-top: 20px;
+		width: 70%;
+		margin-left: 10px;
+	}
+	.attr2{
+		margin-top: 20px;
+		width: 70%;
+		margin-left: 10px;
+	}
+
+	.attr-value {
+		float: right;
+		color: rgb(16, 145, 68);
+	}
+	.attr-value {
+		float: right;
+		color: rgb(16, 145, 68);
+	}
+
+	.description {
+		margin: 16px 10px;
+		color: rgb(182, 115, 15);
+	}
+}
+
+
+#middle-right-part{
+	margin-left: 10px;
+}
+
+#search-switches {
+	margin-left: 32px;
+
+	md-switch {
+		display: inline-block;
+	}
+}
+
+
+// ----------------------------------
+#search-bar{
+	position:relative;
+	// left:1000px;
+	// top:80px;
+}
+
+#object-list-containers {
+	margin-top: -28px;
+	.object-list-container {
+		width: 290px;
+		height: 330px;
+		margin-right: 10px;
+		opacity: 0.8;
+		.object-counter{
+			float: right;
+			margin-top: 4px;
+			color: white;
+			padding: 1px 4px;
+			border-radius: 10px;
+			&.platform{ background-color: darken(#69F0AE, 40%);  }
+			&.boat{ background-color: darken(#FF6384, 40%);  }
+			&.base{ background-color: darken(#45B7CD, 40%);  }
+		}
+		.header{
+			border-radius: 8px 8px 0px 0px;
+			height:30px;
+			padding: 0px 4px;
+			font-weight: bolder;
+			&.platform{ background-color:#A2F2CB; color: darken(#69F0AE, 40%);}
+			&.boat{ background-color:#FBB0C0; color: darken(#FF6384, 40%);}
+			&.base{ background-color:#9FD0D9; color: darken(#45B7CD, 40%);}
+		}
+
+		.goods-list-item {
+			.title {
+				font-size: 20px;
+				line-height: 22px;
+				font-weight: 500;
+			}
+
+			.description {
+				font-size: 14px;
+				line-height: 14px;
+				margin-top: 6px;
+				color: gray;
+			}
+		}
+	}
+}
+#material-list-containers {
+	margin-top: 0px;
+	.object-list-container {
+		width: 290px;
+		height: 220px;
+		margin-right: 10px;
+		opacity: 0.8;
+		.object-counter{
+			float: right;
+			margin-top: 4px;
+			color: white;
+			padding: 1px 4px;
+			border-radius: 10px;
+			&.material{ background-color: darken(#69F0AE, 40%);  }
+		}
+		.header{
+			border-radius: 8px 8px 0px 0px;
+			height:30px;
+			padding: 0px 4px;
+			font-weight: bolder;
+			&.material{ background-color:darken(#283593,10%); color: white;}
+		}
+
+		.goods-list-item {
+			.title {
+				font-size: 20px;
+				line-height: 22px;
+				font-weight: 500;
+			}
+
+			.description {
+				font-size: 14px;
+				line-height: 14px;
+				margin-top: 6px;
+				color: gray;
+			}
+		}
+	}
+}
+
+
+
+
+// ------------------
+#bar{
+	chart-colors:red
+}
+#chart-container{
+	position:relative;
+	margin-top: 8px;
+	#bar-chart{
+		margin-top: 36px;
+		.chart-bar{
+
+		}
+	}
+	#table-chart{
+		background: linear-gradient(
+			to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+			border-radius: 8px 8px 0px 0px;
+		padding: 6px;
+		width: 278px;
+	}
+	#table-chart-title{
+		text-align: center;
+		color: white;
+		font-weight: 600;
+	}
+	#pie-chart{
+	}
+}
+
+
+#bottom-part{
+	padding-left: 40px;
+	// height:390px;
+	background-color:#B0BEC5;
+	margin-top: 4px;
+}
+
+#bottom-form{
+	margin-left: 10px;
+	textarea{
+		border-radius: 6px;
+	}
+}
+#bottom-slider-container{
+}
+#bottom-slider-group{
+	border-radius: 8px;
+	border: dashed 2px gray;
+	position: relative;
+	display: block;
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 280px;
+	width: 500px;
+	overflow-y: auto;
+	.bottom-slider-unit{
+		display: block;
+		margin-left: 16px;
+	}
+	.slider-title-btn{
+		background-color: rgb(228, 177, 123);
+		padding: 4px 16px;
+		color: white;
+		font-weight: 600;
+		width: 4em;
+		border-radius: 5px;
+		max-width: 8em;
+	}
+	md-slider{
+		max-width: 240px;
+	}
+	input{
+		padding: 4px 16px;
+		border: solid 2px gray;
+	}
+}
+
+
+#bottom-slider-add{
+	width: 300px;
+	text-align: center;
+	padding: 6px;
+	background-color: rgb(244, 244, 244);
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 8px auto;
+}
+#weather-and-condition{
+	margin-top: 6px;
+	margin-left: 16px;
+	.md-fab{
+		vertical-align: top;
+		font-size: 16px;
+		width: 24px;
+		height: 24px;
+		min-height: 24px;
+		line-height: 24px;
+		float: right;
+	}
+}
+#weather-header{
+	background-color: rgb(254, 253, 214);
+	padding-bottom: 8px;
+	border-radius: 6px 6px 0px 0px;
+}
+
+#weather-list{
+	height: 180px;
+	width: 400px;
+	#weather-title{
+		font-size: 20px;
+		margin-left: 8px;
+		font-weight: 500;
+	}
+
+}
+
+#weather-card-container{
+	width: 400px;
+	 height: 150px;
+
+	overflow-x: auto;
+	// border-top: double 2px gray;
+	padding-top: 4px;
+	background-color: rgba(243, 255, 0, 0.54);
+}
+
+#card-wrapper{
+	max-height: 120px;
+	width: auto;
+	// https://stackoverflow.com/questions/5743065/force-horizontal-expansion
+	white-space: nowrap;
+}
+
+.weather-card{
+	height: 120px;
+	min-width: 110px;
+	background-color: white;
+	display: inline-block;
+	margin-left: 15px;
+	margin-right: 15px;
+	border: dashed 1px black;
+}
+
+#condition-list{
+	margin-top: 14px;
+}
+
+#condition-list-container{
+	height: 120px;
+	background-color: white;
+	overflow-y: auto;
+	.condition-cell{
+		border-bottom: dotted 1px gray;
+	}
+}
+
+#condition-list-title{
+	height: 36px;
+	font-size: 20px;
+	font-weight: 500;
+	padding-left: 10px;
+	background-color: rgb(236, 222, 255);
+	opacity: 0.8;
+	border-radius: 6px 6px 0px 0px;
+}
+
+#control-panel{
+	background-color: rgba(255, 255, 255, 0.7);
+	margin-left: 20px;
+	padding: 0px 16px 20px;
+	// height: 95%;
+	height: 330px;
+	margin-top: 8px;
+}
+
+#bottom-right-part{
+	margin-left: 30px;
+}
+#robust-bar{
+	width: 50px;
+}
+
+#work-start{
+	position:relative;
+	// margin-top:-10px;
+	// right:-20px;
+	margin-left: 100px;
+	margin-top: 20px;
+	width:130px;
+	height:130px;
+}
+#work-done{
+	position: absolute;
+	margin-top:400px;
+	margin-left: 800px;
+	width:200px;
+	height: 200px
+
+}
+#weather-confirm{
+	text-align: center;
+	position: relative;
+	margin-left: 80px;
+	bottom: 5px
+}
+}

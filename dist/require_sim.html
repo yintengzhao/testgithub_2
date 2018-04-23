@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/build/vendor.css">
+  <link rel="stylesheet" href="/build/application.css">
+  <script src="require.js" defer async="true" data-main="build/root"></script>
+</head>
+
+<body ng-controller="RequireSimCtrl" id="require_sim" ng-class="" ng-cloak>
+
+  <div id="sys-title-logo">
+    <div id="logo">
+      <img src="assets/logo.png">
+    </div>
+    <div id="sys-title">保障体系模拟仿真系统</div>
+    <div id="sys-subtitle">物资消耗模拟仿真模块</div>
+  </div>
+
+  <div id="content">
+
+    <div id="period">
+      保障周期
+      <md-input-container class="md-block">
+        <input required type="number" step="any" name="period" ng-model="period" min="0" max="999" />
+        <span style="position:absolute;left:340px">天</span>
+      </md-input-container>
+    </div>
+
+    <div layout="column" class="test">
+      <div  layout="{{ vm.direction }}" layout-md="row" class="">
+
+        <div id="input-table-container">
+          <table class="input-table">
+            <thead>
+              <tr>
+                <th>作业类型</th>
+                <th>勘探井</th>
+                <th>生产平台</th>
+                <th>工程船</th>
+                <th>开发井</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>
+
+                  <md-select ng-model="dw">
+                    <md-option ng-repeat="dw in dws" value="{{dw}}">{{dw}}</md-option>
+                  </md-select>
+
+                </td>
+                <td><input type="number" min="0" ng-show='abc' ng-model="data11"></input>
+                  <div ng-hide='abc'>{{data11}}</div>
+                </td>
+                <td><input type="number" min="0" ng-show='abc' ng-model="data12"></input>
+                  <div ng-hide='abc'>{{data12}}</div>
+                </td>
+                <td><input type="number" min="0" ng-show='abc' ng-model="data13"></input>
+                  <div ng-hide='abc'>{{data13}}</div>
+                </td>
+                <td><input type="number" min="0" ng-show='abc' ng-model="data14"></input>
+                  <div ng-hide='abc'>{{data14}}</div>
+                </td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+
+
+        <div style="position:relative;margin-left:50px">
+          <canvas style="height:250px;width:800px" id="line" class="chart chart-line" chart-data="data"
+          chart-labels="labels" chart-series="series" chart-options="options"
+          chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+
+        </div>
+      </div>
+    </div>
+
+    <div layout="column" class="test">
+      <div  layout="{{ vm.direction }}" layout-md="row" class="">
+        <div>
+          <md-button class="md-raised md-primary" id="add" >添加</md-button>
+
+        </div>
+        <div>
+          <md-button class="md-raised md-primary" id="modify" ng-click="modifydata()">修改</md-button>
+
+        </div>
+        <div>
+          <md-button class="md-raised md-primary" id="confirm" ng-click="yes()">确认</md-button>
+
+        </div>
+        <div style="position:relative;margin-left:650px">物资</div>
+      </div>
+    </div>
+
+
+
+
+
+    <div id="data-table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:200px">物资</th>
+            <th>所需数量</th>
+            <th>占用空间</th>
+            <th>变量</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>柴油</td>
+            <td>{{num11}}</td>
+            <td>{{vol12}}</td>
+            <td>4</td>
+            <td>液体</td>
+          </tr>
+          <tr>
+            <td>生活用水</td>
+            <td>{{num21}}</td>
+            <td>{{vol22}}</td>
+            <td>4</td>
+            <td>液体</td>
+          </tr>
+          <tr>
+            <td>土粉</td>
+            <td>{{num31}}</td>
+            <td>{{vol32}}</td>
+            <td>4</td>
+            <td>物料</td>
+          </tr>
+          <tr>
+            <td>重晶石</td>
+            <td>{{num41}}</td>
+            <td>{{vol42}}</td>
+            <td>4</td>
+            <td>物料</td>
+          </tr>
+          <tr>
+            <td>水泥</td>
+            <td>{{num51}}</td>
+            <td>{{vol52}}</td>
+            <td>4</td>
+            <td>物料</td>
+          </tr>
+          <tr>
+            <td>36套管</td>
+            <td>{{num61}}</td>
+            <td>{{vol62}}</td>
+            <td>4</td>
+            <td>管</td>
+          </tr>
+          <tr>
+            <td>7套管</td>
+            <td>{{num71}}</td>
+            <td>{{vol72}}</td>
+            <td>4</td>
+            <td>管</td>
+          </tr>
+          <tr>
+            <td>4油管</td>
+            <td>{{num81}}</td>
+            <td>{{vol82}}</td>
+            <td>4</td>
+            <td>管</td>
+          </tr>
+
+
+
+
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id="verify-requirements" class="md-display-1">
+      <md-button class="md-raised md-primary" id="verify-button" ng-click="confirmFunction()">需求验证</md-button>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+<script type="text/javascript">document.write('<script src="' + (location.protocol || 'http:') + '//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')</script>
+</body>
+
+</html>

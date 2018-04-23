@@ -1,0 +1,67 @@
+#demo {
+  background-color: rgb(3, 54, 70);
+
+  #sys-area {
+    background-color: rgb(181, 227, 235);
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 350px;
+  }
+
+  #sys-title-logo {
+    width: 900px;
+    padding-top: 16px;
+  }
+
+  #logo {
+    display: inline-block;
+
+    img {
+      width: 60px;
+    }
+    // top: 20px;
+  }
+
+  #sys-title {
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 36px;
+  }
+
+  #sys-subtitle {
+    color: rgb(208, 208, 208);
+    margin-left: 72px;
+    font-size: 28px;
+  }
+
+  #sys-menu {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    button {
+      border-radius: 12px;
+      width: 100%;
+      height: 60px;
+      background-color: rgb(135, 30, 34);
+      font-size: 28px;
+      color: white;
+    }
+  }
+
+  #sys-operation {
+    padding: 20px;
+    font-size: 20px;
+
+    button {
+      border-radius: 8px;
+      width: 300px;
+      height: 60px;
+      background-color: rgb(23, 119, 93);
+      color: white;
+      font-size: 23px;
+    }
+  }
+}

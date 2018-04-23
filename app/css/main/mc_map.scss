@@ -1,0 +1,150 @@
+#mc-map {
+	position: relative;
+	width: 675px;
+	height: 625px;
+	// left: 315-40px;
+	// top: 105-40px;
+	border: dashed 1px blue;
+	margin-left: 10px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#26aef2+0,eff6ff+100 */
+	background: linear-gradient(to bottom, #ACDFF6 0%,#eff6ff 100%);
+}
+
+#mc-map-header {
+	height: 30px;
+	// background-color: rgb(20, 85, 182);
+	margin: 10px auto auto 10px;
+
+	.mc-header-cell {
+		margin-right: 16px;
+		font-weight: bold;
+	}
+}
+
+#mc-map-main {
+	width: 675px;
+	height: 470px;
+	position: relative;
+
+	.test {
+		// transform: scale(1);
+		// width: 120%;
+	}
+
+	img {
+		// position: absolute;
+		// transform: scale(2, 2);
+		// -webkit-clip-path: rect(0px 500px 500px 0px);
+		// width: 100%;
+		// clip: rect(0px,60px,200px,0px);
+	}
+}
+
+#mc-current-point {
+	position: absolute;
+	fill: red;
+	pointer-events: none;
+}
+$ship-color: rgb(35, 103, 182);
+$platform-color: rgb(31, 213, 9);
+$base-color: rgb(210, 62, 204);
+
+#mc-points {
+	// pointer-events: none;
+	cursor: pointer;
+
+	.mc-point {
+		margin: -20px auto auto -20px;
+		position: absolute;
+		background-color: #EFEFEF;
+		border-radius: 5px;
+	}
+
+	.ship {
+		fill: $ship-color;
+	}
+
+	.platform {
+		fill: $platform-color;
+	}
+
+	.base {
+		fill: $base-color;
+	}
+}
+
+#mc-slider {
+	position: relative;
+	margin: -16px auto;
+	// background-color: white;
+	z-index: 1;
+	width: 95%;
+}
+
+#mc-bottom {
+	position: relative;
+	margin-top: -16px;
+	z-index: 10;
+	user-select: none;
+}
+
+#mc-tool-bar {
+	display: inline-block;
+	height: 96px;
+	width: 140px;
+	// background-color: green;
+	// padding-top: 5px;
+	padding-left: 5px;
+
+	.mc-tool-icon {
+		fill: rgb(83, 146, 228);
+		cursor: pointer;
+	}
+}
+
+#mc-select {
+	display: inline-block;
+	width: 335px;
+	height: 88px;
+	background-color: rgb(249, 249, 255);
+	border: solid 1px gray;
+	border-radius: 3px;
+	vertical-align: top;
+
+	.mc-selected-point {
+		display: inline-block;
+		cursor: not-allowed;
+	}
+
+	.mc-select-icon {
+		&.ship {
+			fill: $ship-color;
+		}
+
+		&.platform {
+			fill: $platform-color;
+		}
+
+		&.base {
+			fill: $base-color;
+		}
+	}
+}
+
+#mc-coor {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#mc-coor-pointer {
+	position: absolute;
+	right: 10px;
+	top: 2px;
+	fill: rgb(119, 118, 126);
+	cursor: pointer;
+	-webkit-user-select: none;
+
+	&.enabled {
+		fill: rgb(85, 81, 136);
+	}
+}
